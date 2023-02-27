@@ -15,5 +15,8 @@ hooks:
       runas: root
   ApplicationStop:
     - location: scripts/stop_flask1.sh
-      timeout: 300
       runas: root
+      depends_on:
+        - location: scripts/start_web_server.sh
+          timeout: 180
+
